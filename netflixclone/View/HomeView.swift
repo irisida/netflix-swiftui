@@ -12,24 +12,35 @@ struct HomeView: View {
     
     var body: some View {
         ZStack  {
+            // set the app background to black
             Color.black
                 .edgesIgnoringSafeArea(.all)
             
-            // id of self as we can guarantee each
-            // category entry will be unique.
-            ForEach(viewModel.allCategories, id: \.self ) {category in
-                VStack {
-                    HStack {
-                        Text(category)
-                        Spacer()
-                    }
+            
+            ScrollView (showsIndicators: false) {
+                
+                // Main Vstack for the app.
+                LazyVStack {
                     
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(viewModel.getMovie(forCategory: category)) { movie in
-                                StandardHomeMovie(movie: movie)
-                                    .frame(width: 100, height: 200)
-                                    .padding(.horizontal, 16)
+                    // Give loop an id of self as we can
+                    // guarantee that each category of
+                    // our array will be unique.
+                    ForEach(viewModel.allCategories, id: \.self ) {category in
+                        VStack {
+                            HStack {
+                                Text(category)
+                                    .font(.title3)
+                                Spacer()
+                            }
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack {
+                                    ForEach(viewModel.getMovie(forCategory: category)) { movie in
+                                        StandardHomeMovie(movie: movie)
+                                            .frame(width: 100, height: 200)
+                                            .padding(.horizontal, 16)
+                                    }
+                                }
                             }
                         }
                     }

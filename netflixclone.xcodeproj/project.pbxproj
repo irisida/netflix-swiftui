@@ -31,6 +31,7 @@
 		644E109F2646B44100AE9D05 /* StandardHomeMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardHomeMovie.swift; sourceTree = "<group>"; };
 		6487DA352646B59D003808CC /* GlobalHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
 		6487DA392646B85B003808CC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		6487DA3D2646D502003808CC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +49,7 @@
 		644E10762645F2CF00AE9D05 = {
 			isa = PBXGroup;
 			children = (
+				6487DA3D2646D502003808CC /* README.md */,
 				644E10812645F2CF00AE9D05 /* netflixclone */,
 				644E10802645F2CF00AE9D05 /* Products */,
 			);
