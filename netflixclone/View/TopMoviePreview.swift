@@ -78,6 +78,10 @@ struct TopMoviePreview: View {
                 }
                 Text("Row of Buttons")
             }
+            .background(LinearGradient
+                            .blackOpacityGradient
+                            .padding(.top, 250)
+            )
         }
         .foregroundColor(.white)
     }

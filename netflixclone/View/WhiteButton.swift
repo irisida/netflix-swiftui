@@ -45,9 +45,8 @@ struct WhiteButton_Previews: PreviewProvider {
             Color.black
                 .edgesIgnoringSafeArea(.all)
             WhiteButton(text: "Play", imageName: "play.fill") {
-                //
+                // action not supplied in preview 
             }
-                
         }
     }
 }
