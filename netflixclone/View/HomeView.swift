@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     var viewModel = HomeViewModel()
     
+    let screen = UIScreen.main.bounds
+    
     var body: some View {
         ZStack  {
             // set the app background to black
@@ -21,6 +23,10 @@ struct HomeView: View {
                 
                 // Main Vstack for the app.
                 LazyVStack {
+                    
+                    TopMoviePreview(movie: exampleMovie1)
+                        .frame(width: screen.width)
+                        .padding(.top, -110)
                     
                     // Give loop an id of self as we can
                     // guarantee that each category of
@@ -34,7 +40,7 @@ struct HomeView: View {
                             }
                             
                             ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHStack {
+                                LazyHStack (spacing: 8) {
                                     ForEach(viewModel.getMovie(forCategory: category)) { movie in
                                         StandardHomeMovie(movie: movie)
                                             .frame(width: 100, height: 200)
