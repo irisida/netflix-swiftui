@@ -18,7 +18,7 @@
 		6487DA3A2646B85B003808CC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487DA392646B85B003808CC /* HomeViewModel.swift */; };
 		6487DA4326480674003808CC /* TopMoviePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487DA4226480674003808CC /* TopMoviePreview.swift */; };
 		6487DA4726481125003808CC /* SmallVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487DA4626481125003808CC /* SmallVerticalButton.swift */; };
-		6487DA4A26482934003808CC /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487DA4926482934003808CC /* WhiteButton.swift */; };
+		6487DA4A26482934003808CC /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487DA4926482934003808CC /* PlayButton.swift */; };
 		6487DA4D26483E1E003808CC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487DA4C26483E1E003808CC /* Extensions.swift */; };
 		6487DA54264878FA003808CC /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487DA53264878FA003808CC /* MovieDetailView.swift */; };
 		6487DA5826488752003808CC /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487DA5726488752003808CC /* Episode.swift */; };
@@ -38,7 +38,7 @@
 		6487DA3D2646D502003808CC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6487DA4226480674003808CC /* TopMoviePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMoviePreview.swift; sourceTree = "<group>"; };
 		6487DA4626481125003808CC /* SmallVerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVerticalButton.swift; sourceTree = "<group>"; };
-		6487DA4926482934003808CC /* WhiteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteButton.swift; sourceTree = "<group>"; };
+		6487DA4926482934003808CC /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		6487DA4C26483E1E003808CC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6487DA53264878FA003808CC /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		6487DA5726488752003808CC /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				644E109F2646B44100AE9D05 /* StandardHomeMovie.swift */,
 				6487DA4226480674003808CC /* TopMoviePreview.swift */,
 				6487DA4626481125003808CC /* SmallVerticalButton.swift */,
-				6487DA4926482934003808CC /* WhiteButton.swift */,
+				6487DA4926482934003808CC /* PlayButton.swift */,
 				6487DA53264878FA003808CC /* MovieDetailView.swift */,
 			);
 			path = View;
@@ -220,7 +220,7 @@
 				644E10832645F2CF00AE9D05 /* netflixcloneApp.swift in Sources */,
 				6487DA4726481125003808CC /* SmallVerticalButton.swift in Sources */,
 				6487DA4D26483E1E003808CC /* Extensions.swift in Sources */,
-				6487DA4A26482934003808CC /* WhiteButton.swift in Sources */,
+				6487DA4A26482934003808CC /* PlayButton.swift in Sources */,
 				6487DA54264878FA003808CC /* MovieDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
