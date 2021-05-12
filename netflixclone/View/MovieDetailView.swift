@@ -52,6 +52,25 @@ struct MovieDetailView: View {
                         // creators and cast
                         CastInfoSubView(movie: movie)
                         
+                        HStack(spacing: screen.width / 6) {
+                            SmallVerticalButton(text: "My List", isOnImage: "checkmark", isOffImage: "plus", isOn: true) {
+                                // TODO
+                            }
+                            
+                            SmallVerticalButton(text: "Rate", isOnImage: "hand.thumbsup.fill", isOffImage: "hand.thumbsup", isOn: false) {
+                                // TODO
+                            }
+                            
+                            SmallVerticalButton(text: "Share", isOnImage: "square.and.arrow.up", isOffImage: "square.and.arrow.up", isOn: false) {
+                                // TODO
+                            }
+                            
+                            Spacer()
+                        }
+                        .padding(.leading, 20)
+                        
+                        CustomTabSwitcher(tabs: [.episodes, .trailers, .more])
+                        
                         
                     }
                     .padding(.horizontal)
