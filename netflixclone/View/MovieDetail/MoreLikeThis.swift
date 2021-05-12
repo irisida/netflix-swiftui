@@ -32,7 +32,7 @@ struct MoreLikeThis_Previews: PreviewProvider {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             
-            MoreLikeThis(movies: exampleMovies1)
+            MoreLikeThis(movies: exampleMoviesGroup1)
         }
         
     }

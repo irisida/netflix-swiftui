@@ -7,6 +7,25 @@
 
 import Foundation
 
+// video and images
+
+let exampleVideoURL = URL(string: "https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4")!
+let exampleImageUrl1 = URL(string: "https://picsum.photos/322/122")!
+let exampleImageUrl2 = URL(string: "https://picsum.photos/323/130")!
+let exampleImageUrl3 = URL(string: "https://picsum.photos/319/125")!
+
+let exampleTrailer1 = Trailer(name: "Season 3 Trailer", videoURL: exampleVideoURL, thumbnailImageUrl: randomExampleImageUrl)
+let exampleTrailer2 = Trailer(name: "Holiday Special", videoURL: exampleVideoURL, thumbnailImageUrl: randomExampleImageUrl)
+let exampleTrailer3 = Trailer(name: "Season 2 finale", videoURL: exampleVideoURL, thumbnailImageUrl: randomExampleImageUrl)
+
+var randomExampleImageUrl: URL {
+    return [exampleImageUrl1, exampleImageUrl2, exampleImageUrl3].randomElement() ?? exampleImageUrl3
+}
+
+let exampleTrailersGroup1 = [exampleTrailer1, exampleTrailer2, exampleTrailer3]
+
+// movies data
+
 let exampleMovie1 = Movie(id: UUID().uuidString,
                           name: "Dark",
                           thumbnailURL: URL(string: "https://picsum.photos/200/300")!,
@@ -18,7 +37,7 @@ let exampleMovie1 = Movie(id: UUID().uuidString,
                           creators: "",
                           cast: "",
                           moreLikeThisMovies: [],
-                          promotionalText: "test")
+                          promotionalText: "test", trailers: [])
 
 let exampleMovie2 = Movie(id: UUID().uuidString,
                           name: "Lucifer",
@@ -30,7 +49,7 @@ let exampleMovie2 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
-                          moreLikeThisMovies: [])
+                          moreLikeThisMovies: [], trailers: [])
 
 let exampleMovie3 = Movie(id: UUID().uuidString,
                           name: "Coming 2 America",
@@ -42,7 +61,7 @@ let exampleMovie3 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
-                          moreLikeThisMovies: [])
+                          moreLikeThisMovies: [], trailers: [])
 
 let exampleMovie4 = Movie(id: UUID().uuidString,
                           name: "Hostel",
@@ -54,7 +73,7 @@ let exampleMovie4 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
-                          moreLikeThisMovies: [])
+                          moreLikeThisMovies: [], trailers: [])
 
 let exampleMovie5 = Movie(id: UUID().uuidString,
                           name: "Fight Club",
@@ -66,7 +85,7 @@ let exampleMovie5 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "ITN",
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
-                          moreLikeThisMovies: [])
+                          moreLikeThisMovies: [], trailers: [])
 
 let exampleMovie6 = Movie(id: UUID().uuidString,
                           name: "Zero Dark Thirty",
@@ -78,11 +97,12 @@ let exampleMovie6 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "ITN",
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
-                          moreLikeThisMovies: exampleMovies1,
-                          promotionalText: "Dark and gritty gets darker")
+                          moreLikeThisMovies: exampleMoviesGroup1,
+                          promotionalText: "Dark and gritty gets darker", trailers: exampleTrailersGroup1)
 
 
-var exampleMovies1: [Movie] {
+
+var exampleMoviesGroup1: [Movie] {
     return [ exampleMovie1,exampleMovie2,exampleMovie3,exampleMovie4,exampleMovie5 ].shuffled()
 }
 
@@ -91,7 +111,4 @@ let exampleEpisodeInfo1 = CurrentEpisodeInfo(episodeName: "Everything to play fo
                                              season: 1,
                                              episode: 2)
 
-let exampleEpisodeInfo2 = CurrentEpisodeInfo(episodeName: "Love and Hate",
-                                             description: "The death of Arthur brings tensions to a head. The future of the team is decided when both try to settle the score with bullets",
-                                             season: 2,
-                                             episode: 4)
+
