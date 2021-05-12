@@ -17,6 +17,7 @@ let exampleMovie1 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
+                          moreLikeThisMovies: [],
                           promotionalText: "test")
 
 let exampleMovie2 = Movie(id: UUID().uuidString,
@@ -28,7 +29,8 @@ let exampleMovie2 = Movie(id: UUID().uuidString,
                           numberOfSeasons: 2,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
-                          cast: "")
+                          cast: "",
+                          moreLikeThisMovies: [])
 
 let exampleMovie3 = Movie(id: UUID().uuidString,
                           name: "Coming 2 America",
@@ -39,7 +41,8 @@ let exampleMovie3 = Movie(id: UUID().uuidString,
                           numberOfSeasons: 3,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
-                          cast: "")
+                          cast: "",
+                          moreLikeThisMovies: [])
 
 let exampleMovie4 = Movie(id: UUID().uuidString,
                           name: "Hostel",
@@ -50,7 +53,8 @@ let exampleMovie4 = Movie(id: UUID().uuidString,
                           numberOfSeasons: 4,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
-                          cast: "")
+                          cast: "",
+                          moreLikeThisMovies: [])
 
 let exampleMovie5 = Movie(id: UUID().uuidString,
                           name: "Fight Club",
@@ -61,7 +65,8 @@ let exampleMovie5 = Movie(id: UUID().uuidString,
                           numberOfSeasons: 5,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "ITN",
-                          cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin")
+                          cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
+                          moreLikeThisMovies: [])
 
 let exampleMovie6 = Movie(id: UUID().uuidString,
                           name: "Zero Dark Thirty",
@@ -73,17 +78,13 @@ let exampleMovie6 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "ITN",
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
+                          moreLikeThisMovies: exampleMovies1,
                           promotionalText: "Dark and gritty gets darker")
 
 
-let exampleMovies1: [Movie] = [
-    exampleMovie1,
-    exampleMovie2,
-    exampleMovie3,
-    exampleMovie4,
-    exampleMovie5,
-    exampleMovie6,
-]
+var exampleMovies1: [Movie] {
+    return [ exampleMovie1,exampleMovie2,exampleMovie3,exampleMovie4,exampleMovie5 ].shuffled()
+}
 
 let exampleEpisodeInfo1 = CurrentEpisodeInfo(episodeName: "Everything to play for",
                                              description: "The team is faced with a dangerous challenge and trust is tested to the last degree. Andreas accepts a new mission after his diciplinary and Ian decides his time on the team should draw to a close.",
