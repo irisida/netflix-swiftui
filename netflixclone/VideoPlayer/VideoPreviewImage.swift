@@ -37,6 +37,6 @@ struct VideoPreviewImage: View {
 
 struct VideoPreviewImage_Previews: PreviewProvider {
     static var previews: some View {
-        VideoPreviewImage(imageUrl: randomExampleImageUrl, videoUrl: exampleVideoURL)
+        VideoPreviewImage(imageUrl: randomExampleImageUrl, videoUrl: exampleVideoURL1)
     }
 }

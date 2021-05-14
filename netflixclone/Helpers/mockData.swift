@@ -7,24 +7,32 @@
 
 import Foundation
 
+// ****************************************
 // video and images
+// ****************************************
 
-let exampleVideoURL = URL(string: "https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4")!
-let exampleImageUrl1 = URL(string: "https://picsum.photos/322/122")!
-let exampleImageUrl2 = URL(string: "https://picsum.photos/323/130")!
-let exampleImageUrl3 = URL(string: "https://picsum.photos/319/125")!
-
-let exampleTrailer1 = Trailer(name: "Season 3 Trailer", videoURL: exampleVideoURL, thumbnailImageUrl: randomExampleImageUrl)
-let exampleTrailer2 = Trailer(name: "Holiday Special", videoURL: exampleVideoURL, thumbnailImageUrl: randomExampleImageUrl)
-let exampleTrailer3 = Trailer(name: "Season 2 finale", videoURL: exampleVideoURL, thumbnailImageUrl: randomExampleImageUrl)
+let exampleVideoURL1 = URL(string: "https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4")!
+let exampleImageUrl1 = URL(string: "https://picsum.photos/299/122")!
+let exampleImageUrl2 = URL(string: "https://picsum.photos/299/130")!
+let exampleImageUrl3 = URL(string: "https://picsum.photos/299/125")!
 
 var randomExampleImageUrl: URL {
     return [exampleImageUrl1, exampleImageUrl2, exampleImageUrl3].randomElement() ?? exampleImageUrl3
 }
 
+// ****************************************
+// Trailers
+// ****************************************
+
+let exampleTrailer1 = Trailer(name: "Season 2 finale", videoURL: exampleVideoURL1, thumbnailImageUrl: randomExampleImageUrl)
+let exampleTrailer2 = Trailer(name: "Season 3 preview", videoURL: exampleVideoURL1, thumbnailImageUrl: randomExampleImageUrl)
+let exampleTrailer3 = Trailer(name: "The last waltz", videoURL: exampleVideoURL1, thumbnailImageUrl: randomExampleImageUrl)
+
 let exampleTrailersGroup1 = [exampleTrailer1, exampleTrailer2, exampleTrailer3]
 
-// movies data
+// ****************************************
+// movie data
+// ****************************************
 
 let exampleMovie1 = Movie(id: UUID().uuidString,
                           name: "Dark",
@@ -42,7 +50,7 @@ let exampleMovie1 = Movie(id: UUID().uuidString,
 let exampleMovie2 = Movie(id: UUID().uuidString,
                           name: "Lucifer",
                           thumbnailURL: URL(string: "https://picsum.photos/200/301")!,
-                          categories: ["Dystopian", "Suspenseful", "Sci-Fi"],
+                          categories: ["Action", "Space", "Horror"],
                           year: 2020,
                           rating: "TV-MA",
                           numberOfSeasons: 2,
@@ -54,7 +62,7 @@ let exampleMovie2 = Movie(id: UUID().uuidString,
 let exampleMovie3 = Movie(id: UUID().uuidString,
                           name: "Coming 2 America",
                           thumbnailURL: URL(string: "https://picsum.photos/200/302")!,
-                          categories: ["Dystopian", "Suspenseful", "Sci-Fi"],
+                          categories: ["Comedy"],
                           year: 2020,
                           rating: "TV-MA",
                           numberOfSeasons: 3,
@@ -66,7 +74,7 @@ let exampleMovie3 = Movie(id: UUID().uuidString,
 let exampleMovie4 = Movie(id: UUID().uuidString,
                           name: "Hostel",
                           thumbnailURL: URL(string: "https://picsum.photos/200/303")!,
-                          categories: ["Dystopian", "Suspenseful", "Sci-Fi"],
+                          categories: ["Gritty", "Film Noir"],
                           year: 2020,
                           rating: "TV-MA",
                           numberOfSeasons: 4,
@@ -78,7 +86,7 @@ let exampleMovie4 = Movie(id: UUID().uuidString,
 let exampleMovie5 = Movie(id: UUID().uuidString,
                           name: "Fight Club",
                           thumbnailURL: URL(string: "https://picsum.photos/200/304")!,
-                          categories: ["Dystopian", "Suspenseful", "Sci-Fi"],
+                          categories: ["Action", "Leaving soon"],
                           year: 2020,
                           rating: "TV-MA",
                           numberOfSeasons: 5,
@@ -90,15 +98,16 @@ let exampleMovie5 = Movie(id: UUID().uuidString,
 let exampleMovie6 = Movie(id: UUID().uuidString,
                           name: "Zero Dark Thirty",
                           thumbnailURL: URL(string: "https://picsum.photos/200/305")!,
-                          categories: ["Dystopian", "Suspenseful", "Sci-Fi"],
+                          categories: ["War", "Drama", "IMDB Top Rated"],
                           year: 2020,
                           rating: "TV-MA",
-                          numberOfSeasons: 6,
+                          numberOfSeasons: 3 ,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "ITN",
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
                           moreLikeThisMovies: exampleMoviesGroup1,
-                          promotionalText: "Dark and gritty gets darker", trailers: exampleTrailersGroup1)
+                          episodes: allExampleEpisodes,
+                          promotionalText: "The war on terror as no rules.", trailers: exampleTrailersGroup1)
 
 
 
@@ -107,8 +116,62 @@ var exampleMoviesGroup1: [Movie] {
 }
 
 let exampleEpisodeInfo1 = CurrentEpisodeInfo(episodeName: "Everything to play for",
-                                             description: "The team is faced with a dangerous challenge and trust is tested to the last degree. Andreas accepts a new mission after his diciplinary and Ian decides his time on the team should draw to a close.",
+                                             description: "With the latinos believing Brin is dead he is forced to make a quiet escape and reach the captain. McArthur makes an attempt on the mayor and the captain exposing Kathy as the leak. She is taken to the FBI ops location to be debriefed on Tulo Loco.",
                                              season: 1,
                                              episode: 2)
 
 
+
+// ****************************************
+// Episodes
+// ****************************************
+
+let episode1 = Episode(name: "Beginning and Endings",
+                       season: 1,
+                       episodeNumber: 1,
+                       thumbnailImageUrlString: "https://picsum.photos/210/308",
+                       description: "Six monts after the disappearance of the team Brin makes contact",
+                       length: 52,
+                       videoUrl: exampleVideoURL1)
+
+let episode2 = Episode(name: "Tough middles",
+                       season: 1,
+                       episodeNumber: 2,
+                       thumbnailImageUrlString: "https://picsum.photos/209/301",
+                       description: "Eleven monts after the disappearance, two of the task force are dead. The captain hunts the leak and suspects Brin may be compromised.",
+                       length: 52,
+                       videoUrl: exampleVideoURL1)
+
+let episode3 = Episode(name: "Lateral flow",
+                       season: 1,
+                       episodeNumber: 2,
+                       thumbnailImageUrlString: "https://picsum.photos/209/301",
+                       description: "The day of reckoning comes for Jose and Brin. The captain and the FBI agents continue to fight over who leads the case. Brin is forced to make a choice.",
+                       length: 54,
+                       videoUrl: exampleVideoURL1)
+
+let episode4 = Episode(name: "Jury's out",
+                       season: 2,
+                       episodeNumber: 2,
+                       thumbnailImageUrlString: "https://picsum.photos/211/302",
+                       description: "Juror #7 finally talls of emily's abduction and identifies the original contact for McArthur, clearing Brin.",
+                       length: 56,
+                       videoUrl: exampleVideoURL1)
+
+let episode5 = Episode(name: "Resurgance",
+                       season: 2,
+                       episodeNumber: 3,
+                       thumbnailImageUrlString: "https://picsum.photos/209/304",
+                       description: "The latino gang ambush Brin and set up Jose after paying off the guards",
+                       length: 52,
+                       videoUrl: exampleVideoURL1)
+
+let episode6 = Episode(name: "Exodus",
+                       season: 3,
+                       episodeNumber: 1,
+                       thumbnailImageUrlString: "https://picsum.photos/209/301",
+                       description: "The gates close as the sound of a single bullet rings out in the courtyard. Can the agents save Sean from Tulo Loco in time to get the info Brin has found before McArthur and the latinos get to Brin a second time.",
+                       length: 52,
+                       videoUrl: exampleVideoURL1)
+
+var allExampleEpisodes = [episode1, episode2, episode3, episode4, episode5, episode6]
