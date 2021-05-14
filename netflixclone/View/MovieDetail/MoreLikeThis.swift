@@ -17,11 +17,9 @@ struct MoreLikeThis: View {
     ]
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns) {
-                ForEach(0 ..< movies.count) { movie in
-                    StandardHomeMovie(movie: movies[movie])
-                }
+        LazyVGrid(columns: columns) {
+            ForEach(0 ..< movies.count) { movie in
+                StandardHomeMovie(movie: movies[movie])
             }
         }
     }
