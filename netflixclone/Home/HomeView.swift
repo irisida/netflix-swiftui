@@ -14,6 +14,12 @@ struct HomeView: View {
     
     @State private var movieDetailToShow: Movie? = nil
     
+    @State private var topRowSelection: HomeTopRow = .home
+    @State private var homeGenre: HomeGenre = .AllGenres
+    
+    @State private var showGenreSelection = false
+    @State private var showTopRowSelection = false
+    
     var body: some View {
         ZStack  {
             // set the app background to black
@@ -26,39 +32,17 @@ struct HomeView: View {
                 // Main Vstack for the app.
                 LazyVStack {
                     
-                    TopRowButtons()
+                    TopRowButtons(topRowSelection: $topRowSelection,
+                                  homeGenre: $homeGenre,
+                                  showGenreSelection: $showGenreSelection,
+                                  showTopRowSelection: $showTopRowSelection)
                     
                     TopMoviePreview(movie: exampleMovie1)
                         .frame(width: screen.width)
                         .padding(.top, -110)
                         .zIndex(-1)
                     
-                    // Give loop an id of self as we can
-                    // guarantee that each category of
-                    // our array will be unique.
-                    ForEach(viewModel.allCategories, id: \.self ) {category in
-                        VStack {
-                            HStack {
-                                Text(category)
-                                    .font(.title3)
-                                    .bold()
-                                Spacer()
-                            }
-                            
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHStack (spacing: 8) {
-                                    ForEach(viewModel.getMovie(forCategory: category)) { movie in
-                                        StandardHomeMovie(movie: movie)
-                                            .frame(width: 100, height: 200)
-                                            .padding(.horizontal, 20)
-                                            .onTapGesture {
-                                                movieDetailToShow = movie
-                                            }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    HomeStack(viewModel: viewModel, topRowSelection: topRowSelection, movieDetailToShow: $movieDetailToShow)
                 }
             }
             
@@ -81,48 +65,132 @@ struct HomeView_Previews: PreviewProvider {
 // top row buttons subview contains the Home/Logo
 // tv shows, Movies and My list main menu options.
 struct TopRowButtons: View {
+    @Binding var topRowSelection: HomeTopRow
+    @Binding var homeGenre: HomeGenre
+    
+    @Binding var showGenreSelection: Bool
+    @Binding var showTopRowSelection: Bool
+    
     var body: some View {
-        HStack {
-            Button(action: {
-                // action
-            }, label: {
-                Image("netflix_logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 55)
-            })
-            .buttonStyle(PlainButtonStyle())
-            .padding(.leading, 16)
-            
-            Spacer()
-            
-            Button(action: {
-                // action
-            }, label: {
-                Text("TV Shows")
-            })
-            .buttonStyle(PlainButtonStyle())
-            
-            
-            Spacer()
-            
-            Button(action: {
-                // action
-            }, label: {
-                Text("Movies")
-            })
-            .buttonStyle(PlainButtonStyle())
-            
-            Spacer()
-            
-            Button(action: {
-                // action
-            }, label: {
-                Text("My List")
-            })
-            .buttonStyle(PlainButtonStyle())
-            .padding(.trailing, 32)
+        
+        switch topRowSelection {
+        case .home:
+            HStack {
+                Button(action: {
+                    topRowSelection = .home
+                }, label: {
+                    Image("netflix_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 55)
+                })
+                .buttonStyle(PlainButtonStyle())
+                .padding(.leading, 16)
+                
+                Spacer()
+                
+                Button(action: {
+                    topRowSelection = .tvShows
+                }, label: {
+                    Text("TV Shows")
+                })
+                .buttonStyle(PlainButtonStyle())
+                
+                
+                Spacer()
+                
+                Button(action: {
+                    topRowSelection = .movies
+                }, label: {
+                    Text("Movies")
+                })
+                .buttonStyle(PlainButtonStyle())
+                
+                Spacer()
+                
+                Button(action: {
+                    topRowSelection = .myList
+                }, label: {
+                    Text("My List")
+                })
+                .buttonStyle(PlainButtonStyle())
+                .padding(.trailing, 32)
+            }
+            .background(Color.black.opacity(0.05))
+        
+        case .tvShows, .movies, .myList:
+            //
+            HStack {
+                Button(action: {
+                    topRowSelection = .home
+                }, label: {
+                    Image("netflix_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 55)
+                })
+                .buttonStyle(PlainButtonStyle())
+                .padding(.leading, 16)
+                
+                
+                HStack(spacing: 32) {
+                    Button(action: {
+                        showTopRowSelection = true
+                    }, label: {
+                        HStack {
+                            Text(topRowSelection.rawValue)
+                                .font(.system(size: 18))
+                            
+                            Image(systemName: "triangle.fill")
+                                .rotationEffect(.degrees(180), anchor: .center)
+                                .font(.system(size: 8))
+                        }
+                    })
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    
+                    
+                    Button(action: {
+                        showGenreSelection = true
+                    }, label: {
+                        HStack {
+                            Text(homeGenre.rawValue)
+                                .font(.system(size: 14))
+                            
+                            Image(systemName: "triangle.fill")
+                                .rotationEffect(.degrees(180), anchor: .center)
+                                .font(.system(size: 8))
+                        }
+                    })
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Spacer()
+                    
+                }.padding(.leading, 24)
+                
+            }
+            .background(Color.black.opacity(0.05))
         }
-        .background(Color.black.opacity(0.05))
+        
+        
     }
 }
+
+enum HomeTopRow: String, CaseIterable {
+    case home = "Home"
+    case tvShows = "TV Shows"
+    case movies = "Movies"
+    case myList = "My List"
+}
+
+enum HomeGenre: String {
+    case AllGenres
+    case Action
+    case Comedy
+    case Horror
+    case SciFi
+    case Drama
+    case Thriller
+    
+}
+

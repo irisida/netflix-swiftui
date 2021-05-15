@@ -40,12 +40,14 @@ let exampleMovie1 = Movie(id: UUID().uuidString,
                           categories: ["Dystopian", "Suspenseful", "Sci-Fi"],
                           year: 2020,
                           rating: "TV-MA",
-                          numberOfSeasons: 1,
+                          numberOfSeasons: 3,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
                           moreLikeThisMovies: [],
-                          promotionalText: "test", trailers: [])
+                          episodes: allExampleEpisodes,
+                          promotionalText: "test",
+                          trailers: [])
 
 let exampleMovie2 = Movie(id: UUID().uuidString,
                           name: "Lucifer",
@@ -53,11 +55,12 @@ let exampleMovie2 = Movie(id: UUID().uuidString,
                           categories: ["Action", "Space", "Horror"],
                           year: 2020,
                           rating: "TV-MA",
-                          numberOfSeasons: 2,
+                          numberOfSeasons: 3,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
-                          moreLikeThisMovies: [], trailers: [])
+                          moreLikeThisMovies: [],
+                          trailers: [])
 
 let exampleMovie3 = Movie(id: UUID().uuidString,
                           name: "Coming 2 America",
@@ -65,11 +68,12 @@ let exampleMovie3 = Movie(id: UUID().uuidString,
                           categories: ["Comedy"],
                           year: 2020,
                           rating: "TV-MA",
-                          numberOfSeasons: 3,
+                          numberOfSeasons: 1,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
-                          moreLikeThisMovies: [], trailers: [])
+                          moreLikeThisMovies: [],
+                          trailers: [])
 
 let exampleMovie4 = Movie(id: UUID().uuidString,
                           name: "Hostel",
@@ -77,11 +81,12 @@ let exampleMovie4 = Movie(id: UUID().uuidString,
                           categories: ["Gritty", "Film Noir"],
                           year: 2020,
                           rating: "TV-MA",
-                          numberOfSeasons: 4,
+                          numberOfSeasons: 1,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
-                          moreLikeThisMovies: [], trailers: [])
+                          moreLikeThisMovies: [],
+                          trailers: [])
 
 let exampleMovie5 = Movie(id: UUID().uuidString,
                           name: "Fight Club",
@@ -89,11 +94,13 @@ let exampleMovie5 = Movie(id: UUID().uuidString,
                           categories: ["Action", "Leaving soon"],
                           year: 2020,
                           rating: "TV-MA",
-                          numberOfSeasons: 5,
+                          numberOfSeasons: 1,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "ITN",
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
-                          moreLikeThisMovies: [], trailers: [])
+                          moreLikeThisMovies: [],
+                          episodes: allExampleEpisodes,
+                          trailers: [])
 
 let exampleMovie6 = Movie(id: UUID().uuidString,
                           name: "Zero Dark Thirty",
@@ -107,7 +114,8 @@ let exampleMovie6 = Movie(id: UUID().uuidString,
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
                           moreLikeThisMovies: exampleMoviesGroup1,
                           episodes: allExampleEpisodes,
-                          promotionalText: "The war on terror as no rules.", trailers: exampleTrailersGroup1)
+                          promotionalText: "The war on terror as no rules.",
+                          trailers: exampleTrailersGroup1)
 
 
 
