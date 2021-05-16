@@ -46,7 +46,7 @@ struct TopMoviePreview: View {
                             }
                         }
                     }
-                }
+                }.padding(.bottom)
                 
                 HStack {
                     Spacer()
@@ -76,7 +76,7 @@ struct TopMoviePreview: View {
                     
                     Spacer()
                 }
-                Text("Row of Buttons")
+                
             }
             .background(LinearGradient
                             .blackOpacityGradient
@@ -84,6 +84,7 @@ struct TopMoviePreview: View {
             )
         }
         .foregroundColor(.white)
+        .padding(.bottom)
     }
 }
 

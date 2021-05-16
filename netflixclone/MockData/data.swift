@@ -1,5 +1,5 @@
 //
-//  GlobalHelpers.swift
+//  data.swift
 //  netflixclone
 //
 //  Created by ed on 08/05/2021.

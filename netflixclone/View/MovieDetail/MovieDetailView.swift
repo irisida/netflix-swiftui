@@ -110,10 +110,9 @@ struct MovieDetailView: View {
                             Button(action: {
                                 self.showSeasonPicker = false
                             }, label: {
-                                Image(systemName: "x.circle.fill")
+                                Image(systemName: "xmark.circle.fill")
                                     .foregroundColor(.white)
                                     .font(.system(size: 40))
-                                    .scaleEffect(x: 1.1)
                             })
                             .padding(.bottom, 30)
                         }
