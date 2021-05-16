@@ -125,7 +125,7 @@ struct MovieDetailView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView(movie: exampleMovie6, movieDetailToShow: .constant(nil))
+        MovieDetailView(movie: exampleMovie1, movieDetailToShow: .constant(nil))
     }
 }
 

@@ -18,8 +18,8 @@ struct MoreLikeThis: View {
     
     var body: some View {
         LazyVGrid(columns: columns) {
-            ForEach(0 ..< movies.count) { movie in
-                StandardHomeMovie(movie: movies[movie])
+            ForEach(0 ..< movies.count) { index in
+                StandardHomeMovie(movie: movies[index])
             }
         }
     }
@@ -30,7 +30,7 @@ struct MoreLikeThis_Previews: PreviewProvider {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             
-            MoreLikeThis(movies: exampleMoviesGroup1)
+            MoreLikeThis(movies: moreLikeThisExamples)
         }
         
     }

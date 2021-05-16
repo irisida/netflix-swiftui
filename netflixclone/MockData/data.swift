@@ -43,11 +43,11 @@ let exampleMovie1 = Movie(id: UUID().uuidString,
                           numberOfSeasons: 3,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
-                          cast: "",
-                          moreLikeThisMovies: [],
+                          cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
+                          moreLikeThisMovies: moreLikeThisExamples,
                           episodes: allExampleEpisodes,
-                          promotionalText: "test",
-                          trailers: [])
+                          promotionalText: "There's dark, then darker than dark.",
+                          trailers: exampleTrailersGroup1)
 
 let exampleMovie2 = Movie(id: UUID().uuidString,
                           name: "Lucifer",
@@ -59,8 +59,9 @@ let exampleMovie2 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
-                          moreLikeThisMovies: [],
-                          trailers: [])
+                          moreLikeThisMovies: moreLikeThisExamples,
+                          promotionalText: "The devil made him do it",
+                          trailers: exampleTrailersGroup1)
 
 let exampleMovie3 = Movie(id: UUID().uuidString,
                           name: "Coming 2 America",
@@ -72,8 +73,9 @@ let exampleMovie3 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
-                          moreLikeThisMovies: [],
-                          trailers: [])
+                          moreLikeThisMovies: moreLikeThisExamples,
+                          promotionalText: "The Prince of Zamunda becomes a King",
+                          trailers: exampleTrailersGroup1)
 
 let exampleMovie4 = Movie(id: UUID().uuidString,
                           name: "Hostel",
@@ -85,8 +87,9 @@ let exampleMovie4 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "",
                           cast: "",
-                          moreLikeThisMovies: [],
-                          trailers: [])
+                          moreLikeThisMovies: moreLikeThisExamples,
+                          promotionalText: "Some getaways are unforgettable",
+                          trailers: exampleTrailersGroup1)
 
 let exampleMovie5 = Movie(id: UUID().uuidString,
                           name: "Fight Club",
@@ -98,29 +101,89 @@ let exampleMovie5 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "ITN",
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
-                          moreLikeThisMovies: [],
+                          moreLikeThisMovies: moreLikeThisExamples,
                           episodes: allExampleEpisodes,
-                          trailers: [])
+                          promotionalText: "If it's your first night. You have to fight!",
+                          trailers:exampleTrailersGroup1)
 
 let exampleMovie6 = Movie(id: UUID().uuidString,
                           name: "Zero Dark Thirty",
                           thumbnailURL: URL(string: "https://picsum.photos/200/305")!,
-                          categories: ["War", "Drama", "IMDB Top Rated"],
+                          categories: ["War", "Drama", "IMDB"],
                           year: 2020,
                           rating: "TV-MA",
                           numberOfSeasons: 3 ,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "ITN",
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
-                          moreLikeThisMovies: exampleMoviesGroup1,
+                          moreLikeThisMovies: moreLikeThisExamples,
                           episodes: allExampleEpisodes,
                           promotionalText: "The war on terror as no rules.",
                           trailers: exampleTrailersGroup1)
 
+// more like this exampe movie data
+let exampleMovie7 = Movie(id: UUID().uuidString,
+                          name: "Zero Dark Thirty",
+                          thumbnailURL: URL(string: "https://picsum.photos/219/305")!,
+                          categories: ["War", "Drama", "IMDB"],
+                          year: 2020,
+                          rating: "TV-MA",
+                          numberOfSeasons: 3 ,
+                          defaultEpisodeInfo: exampleEpisodeInfo1,
+                          creators: "ITN",
+                          cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
+                          moreLikeThisMovies: [],
+                          episodes: allExampleEpisodes,
+                          promotionalText: "The war on terror as no rules.",
+                          trailers: exampleTrailersGroup1)
+
+let exampleMovie8 = Movie(id: UUID().uuidString,
+                          name: "Fight Club",
+                          thumbnailURL: URL(string: "https://picsum.photos/219/304")!,
+                          categories: ["Action", "Leaving soon"],
+                          year: 2020,
+                          rating: "TV-MA",
+                          numberOfSeasons: 1,
+                          defaultEpisodeInfo: exampleEpisodeInfo1,
+                          creators: "ITN",
+                          cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
+                          moreLikeThisMovies: [],
+                          episodes: allExampleEpisodes,
+                          trailers: [])
+
+let exampleMovie9 = Movie(id: UUID().uuidString,
+                          name: "Coming 2 America",
+                          thumbnailURL: URL(string: "https://picsum.photos/219/302")!,
+                          categories: ["Comedy"],
+                          year: 2020,
+                          rating: "TV-MA",
+                          numberOfSeasons: 1,
+                          defaultEpisodeInfo: exampleEpisodeInfo1,
+                          creators: "",
+                          cast: "",
+                          moreLikeThisMovies: [],
+                          trailers: exampleTrailersGroup1)
+
+let exampleMovie10 = Movie(id: UUID().uuidString,
+                          name: "Hostel",
+                          thumbnailURL: URL(string: "https://picsum.photos/219/303")!,
+                          categories: ["Gritty", "Film Noir"],
+                          year: 2020,
+                          rating: "TV-MA",
+                          numberOfSeasons: 1,
+                          defaultEpisodeInfo: exampleEpisodeInfo1,
+                          creators: "",
+                          cast: "",
+                          moreLikeThisMovies: [],
+                          trailers: [])
 
 
-var exampleMoviesGroup1: [Movie] {
-    return [ exampleMovie1,exampleMovie2,exampleMovie3,exampleMovie4,exampleMovie5 ].shuffled()
+var moreLikeThisExamples: [Movie] {
+    return [ exampleMovie7,exampleMovie8, exampleMovie9, exampleMovie10 ].shuffled()
+}
+
+var setupMoviesShuffled: [Movie] {
+    return [ exampleMovie1, exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6 ].shuffled()
 }
 
 let exampleEpisodeInfo1 = CurrentEpisodeInfo(episodeName: "Everything to play for",
