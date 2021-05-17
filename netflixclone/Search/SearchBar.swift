@@ -35,11 +35,13 @@ struct SearchBar: View {
                     .padding(8)
                     .padding(.leading, -8)
                     .background(Color.graySearchBackground)
+                    .cornerRadius(8)
+                    .frame(height: 34)
                     .onTapGesture(perform: {
                         isEditing = true
                     })
-                    .cornerRadius(8)
-                    .frame(height: 34)
+                    .animation(.default)
+                    
                 
                 if !text.isEmpty {
                     if isLoading {
@@ -77,6 +79,8 @@ struct SearchBar: View {
                             .foregroundColor(.white)
                     })
                     .padding(.trailing, 10)
+                    .transition(.move(edge: .trailing))
+                    .animation(.default)
                 }
             }
         }
