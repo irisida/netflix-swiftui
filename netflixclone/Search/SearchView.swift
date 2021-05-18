@@ -13,6 +13,8 @@ struct SearchView: View {
     
     @State private var searchText = ""
     
+    @State private var movieDetailToShow: Movie? = nil 
+    
     var body: some View {
         
         let searchTextBinding = Binding {
@@ -32,15 +34,28 @@ struct SearchView: View {
                 
                 ScrollView {
                     if viewModel.isShowingPopularMovies {
-                        Text("PopularMovies View")
+                        PopularList(movies: viewModel.popularMovies, movieDetailToShow: $movieDetailToShow)
                     }
                     
                     if viewModel.viewState == .empty {
-                        Text("Empty View")
+                        Text("Your search did not have any results.")
+                            .bold()
+                            .padding(.top, 120)
                     }
                     
                     if viewModel.viewState == .ready && !viewModel.isShowingPopularMovies {
-                        Text("Search Results View")
+                        VStack {
+                            HStack {
+                                Text("Movies & TV")
+                                    .bold()
+                                    .font(.title3)
+                                    .padding(.leading, 8)
+                                
+                                Spacer()
+                            }
+                            
+                            SearchResultsGrid(movies: viewModel.searchResults, movieDetailToShow: $movieDetailToShow)
+                        }
                     }
                     
                 }
@@ -48,10 +63,41 @@ struct SearchView: View {
                 Spacer()
             }
             .foregroundColor(.white)
+            
+            if movieDetailToShow != nil {
+                MovieDetailView(movie: movieDetailToShow!, movieDetailToShow: $movieDetailToShow)
+            }
         }
     }
 }
 
+struct PopularList: View {
+    var movies: [Movie]
+    
+    @Binding var movieDetailToShow: Movie?
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Popular Searches")
+                    .bold()
+                    .font(.title3)
+                    .padding(.leading, 8)
+                
+                Spacer()
+            }
+            
+            LazyVStack {
+                ForEach(movies, id: \.id) { movie in
+                    PopularMovieView(movie: movie, movieDetailToshow: $movieDetailToShow)
+                        .frame(height: 75)
+                }
+            }
+        }
+    }
+}
+
+// preview
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView(viewModel: SearchViewModel())

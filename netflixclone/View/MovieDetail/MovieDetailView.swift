@@ -37,7 +37,7 @@ struct MovieDetailView: View {
                     ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
                         VStack{
                             StandardHomeMovie(movie: movie)
-                                .frame(width: screen.width / 2.5 )
+                                .frame(width: screen.width / 2.5, height: screen.height / 4 )
                             
                             MovieInfoSubHeadline(movie: movie)
                             

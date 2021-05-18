@@ -38,12 +38,22 @@ class HomeViewModel: ObservableObject {
     }
     
     
+//    func setupMovies() {
+//        movies["Trending Now"] = setupMoviesShuffled.shuffled()
+//        movies["Comedies"] = setupMoviesShuffled.shuffled()
+//        movies["Action"] = setupMoviesShuffled.shuffled()
+//        movies["watch it again"] = setupMoviesShuffled.shuffled()
+//        movies["Thriller"] = setupMoviesShuffled.shuffled()
+//        movies["Sci-Fi Movies"] = setupMoviesShuffled.shuffled()
+//    }
+    
+    // working with mock data version n lieu of a functional backend
     func setupMovies() {
-        movies["Trending Now"] = setupMoviesShuffled.shuffled()
-        movies["Comedies"] = setupMoviesShuffled.shuffled()
-        movies["Action"] = setupMoviesShuffled.shuffled()
-        movies["watch it again"] = setupMoviesShuffled.shuffled()
-        movies["Thriller"] = setupMoviesShuffled.shuffled()
-        movies["Sci-Fi Movies"] = setupMoviesShuffled.shuffled()
+        movies["Trending Now"] = generateMovies(8).shuffled()
+        movies["Comedies"] = generateMovies(8).shuffled()
+        movies["Action"] = generateMovies(8).shuffled()
+        movies["watch it again"] = generateMovies(8).shuffled()
+        movies["Thriller"] = generateMovies(8).shuffled()
+        movies["Sci-Fi Movies"] = generateMovies(8).shuffled()
     }
 }

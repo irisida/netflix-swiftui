@@ -65,8 +65,8 @@ func generateTrailers(_ count: Int) -> [Trailer] {
         let nameLength = Int.random(in: 9..<20)
         let name = randomString(length: nameLength)
         
-        let randThumbnail = Int.random(in: 0...9)
-        let thumbnail = URL(string: "https://picsum.photos/300/10\(randThumbnail)")!
+        let randThumbnail = Int.random(in: 10...99)
+        let thumbnail = URL(string: "https://picsum.photos/300/1\(randThumbnail)")!
         
         let trailer = Trailer(id: id, name: name, videoURL: exampleVideoURL1, thumbnailImageUrl: thumbnail)
         allTrailers.append(trailer)
@@ -84,8 +84,8 @@ func generateEpisodes(_ count: Int, forSeason season: Int) -> [Episode] {
         let nameLength = Int.random(in: 9..<20)
         let name = randomString(length: nameLength)
         
-        let randThumbnail = Int.random(in: 0...9)
-        let thumbnail = "https://picsum.photos/300/10\(randThumbnail)"
+        let randThumbnail = Int.random(in: 10...99)
+        let thumbnail = "https://picsum.photos/300/1\(randThumbnail)"
         
         let desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at purus diam. Nullam a nulla a augue eleifend convallis ac vitae neque. Curabitur sit amet felis non libero consectetur euismod."
         let randLength = Int.random(in: 20..<59)
