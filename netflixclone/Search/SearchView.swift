@@ -90,7 +90,7 @@ struct PopularList: View {
             LazyVStack {
                 ForEach(movies, id: \.id) { movie in
                     PopularMovieView(movie: movie, movieDetailToshow: $movieDetailToShow)
-                        .frame(height: 75)
+                        .frame(height: 95)
                 }
             }
         }

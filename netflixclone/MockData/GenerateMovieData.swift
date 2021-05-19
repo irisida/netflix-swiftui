@@ -19,8 +19,8 @@ func generateMovies(_ count: Int) -> [Movie] {
         let nameLength = Int.random(in: 9..<20)
         let name = randomString(length: nameLength)
         
-        let randThumbnail = Int.random(in: 0...9)
-        let thumbnail = URL(string: "https://picsum.photos/300/10\(randThumbnail)")!
+        let randThumbnail = Int.random(in: 10...99)
+        let thumbnail = URL(string: "https://picsum.photos/203/2\(randThumbnail)")!
         
         let year = Int.random(in: 2000...2020)
         
@@ -49,7 +49,7 @@ func generateMovies(_ count: Int) -> [Movie] {
         
         let moreLikeThis = moreLikeThisExamples
         
-        let movie = Movie(id: id, name: name, thumbnailURL: thumbnail, categories: categories, genre: .AllGenres, year: year, rating: "PG-13", numberOfSeasons: numSeasons, currentEpisode: defEpiInfo, defaultEpisodeInfo: defEpiInfo, creators: creators, cast: cast, moreLikeThisMovies: moreLikeThis, episodes: allEpisodes, promotionalText: headline, trailers: allTrailers)
+        let movie = Movie(id: id, name: name, thumbnailURL: thumbnail, categories: categories, genre: .AllGenres, year: year, rating: "PG-13", numberOfSeasons: numSeasons, currentEpisode: defEpiInfo, defaultEpisodeInfo: defEpiInfo, creators: creators, cast: cast, moreLikeThisMovies: moreLikeThis, episodes: allEpisodes, promotionalText: headline, trailers: allTrailers, previewImageName: "travelersPreview")
         allMovies.append(movie)
     }
     

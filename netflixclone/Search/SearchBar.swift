@@ -18,7 +18,7 @@ struct SearchBar: View {
     var body: some View {
         ZStack(alignment: .leading) {
             Color.graySearchBackground
-                .frame(width: 280, height: 38)
+                .frame(width: 290, height: 38)
                 .cornerRadius(8)
                 
             
@@ -54,7 +54,7 @@ struct SearchBar: View {
                                 }
                         })
                         .frame(width: 35, height: 34)
-                        .padding(.trailing, 18)
+                        .padding(.trailing, 5)
                     } else {
                         Button(action: {
                             text = ""
@@ -63,7 +63,7 @@ struct SearchBar: View {
                                 .foregroundColor(.graySearchText)
                                 .frame(width: 35, height: 34)
                         })
-                        .padding(.trailing, 18)
+                        .padding(.trailing, 5)
                     }
                 }
                 
@@ -92,7 +92,7 @@ struct SearchBar_Previews: PreviewProvider {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             
-            SearchBar(text: .constant("movie name"), isLoading: .constant(true))
+            SearchBar(text: .constant("movie name"), isLoading: .constant(false))
                 .padding()
         }
     }

@@ -44,6 +44,7 @@ struct HomeStack: View {
                     }
                 }
             }
+            .padding(.leading, 8)
         }
     }
 }

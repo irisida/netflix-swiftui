@@ -37,10 +37,12 @@ struct HomeView: View {
                                   showGenreSelection: $showGenreSelection,
                                   showTopRowSelection: $showTopRowSelection)
                     
-                    TopMoviePreview(movie: exampleMovie1)
+                    TopMoviePreview(movie: topPromoMovies.randomElement()!)
                         .frame(width: screen.width)
                         .padding(.top, -110)
                         .zIndex(-1)
+                    
+                    MoviePreviewRow(movies: previewMovies)
                     
                     HomeStack(viewModel: viewModel, topRowSelection: topRowSelection, selectedGenre: homeGenre, movieDetailToShow: $movieDetailToShow)
                 }

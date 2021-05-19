@@ -18,7 +18,7 @@ struct PopularMovieView: View {
             HStack {
                 KFImage(movie.thumbnailURL)
                     .resizable()
-                    .frame(width: proxy.size.width / 3)
+                    .frame(width: proxy.size.width / 3.5)
                     .padding(.leading, 4)
                     
                 

@@ -47,7 +47,9 @@ let exampleMovie1 = Movie(id: UUID().uuidString,
                           moreLikeThisMovies: moreLikeThisExamples,
                           episodes: allExampleEpisodes,
                           promotionalText: "There's dark, then darker than dark.",
-                          trailers: exampleTrailersGroup1)
+                          trailers: exampleTrailersGroup1,
+                          previewImageName: "ozarkPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 let exampleMovie2 = Movie(id: UUID().uuidString,
                           name: "Lucifer",
@@ -61,7 +63,9 @@ let exampleMovie2 = Movie(id: UUID().uuidString,
                           cast: "",
                           moreLikeThisMovies: moreLikeThisExamples,
                           promotionalText: "The devil made him do it",
-                          trailers: exampleTrailersGroup1)
+                          trailers: exampleTrailersGroup1,
+                          previewImageName: "ozarkPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 let exampleMovie3 = Movie(id: UUID().uuidString,
                           name: "Coming 2 America",
@@ -75,7 +79,9 @@ let exampleMovie3 = Movie(id: UUID().uuidString,
                           cast: "",
                           moreLikeThisMovies: moreLikeThisExamples,
                           promotionalText: "The Prince of Zamunda becomes a King",
-                          trailers: exampleTrailersGroup1)
+                          trailers: exampleTrailersGroup1,
+                          previewImageName: "arrestedDevPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 let exampleMovie4 = Movie(id: UUID().uuidString,
                           name: "Hostel",
@@ -89,7 +95,9 @@ let exampleMovie4 = Movie(id: UUID().uuidString,
                           cast: "",
                           moreLikeThisMovies: moreLikeThisExamples,
                           promotionalText: "Some getaways are unforgettable",
-                          trailers: exampleTrailersGroup1)
+                          trailers: exampleTrailersGroup1,
+                          previewImageName: "arrestedDevPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 let exampleMovie5 = Movie(id: UUID().uuidString,
                           name: "Fight Club",
@@ -104,7 +112,9 @@ let exampleMovie5 = Movie(id: UUID().uuidString,
                           moreLikeThisMovies: moreLikeThisExamples,
                           episodes: allExampleEpisodes,
                           promotionalText: "If it's your first night. You have to fight!",
-                          trailers:exampleTrailersGroup1)
+                          trailers:exampleTrailersGroup1,
+                          previewImageName: "dirtyJohnPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 let exampleMovie6 = Movie(id: UUID().uuidString,
                           name: "Zero Dark Thirty",
@@ -119,7 +129,9 @@ let exampleMovie6 = Movie(id: UUID().uuidString,
                           moreLikeThisMovies: moreLikeThisExamples,
                           episodes: allExampleEpisodes,
                           promotionalText: "The war on terror as no rules.",
-                          trailers: exampleTrailersGroup1)
+                          trailers: exampleTrailersGroup1,
+                          previewImageName: "dirtyJohnPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 // more like this exampe movie data
 let exampleMovie7 = Movie(id: UUID().uuidString,
@@ -135,7 +147,9 @@ let exampleMovie7 = Movie(id: UUID().uuidString,
                           moreLikeThisMovies: [],
                           episodes: allExampleEpisodes,
                           promotionalText: "The war on terror as no rules.",
-                          trailers: exampleTrailersGroup1)
+                          trailers: exampleTrailersGroup1,
+                          previewImageName: "darkPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 let exampleMovie8 = Movie(id: UUID().uuidString,
                           name: "Fight Club",
@@ -149,7 +163,9 @@ let exampleMovie8 = Movie(id: UUID().uuidString,
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
                           moreLikeThisMovies: [],
                           episodes: allExampleEpisodes,
-                          trailers: [])
+                          trailers: [],
+                          previewImageName: "darkPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 let exampleMovie9 = Movie(id: UUID().uuidString,
                           name: "Coming 2 America",
@@ -162,7 +178,9 @@ let exampleMovie9 = Movie(id: UUID().uuidString,
                           creators: "",
                           cast: "",
                           moreLikeThisMovies: [],
-                          trailers: exampleTrailersGroup1)
+                          trailers: exampleTrailersGroup1,
+                          previewImageName: "whiteLinesPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 let exampleMovie10 = Movie(id: UUID().uuidString,
                           name: "Hostel",
@@ -175,7 +193,9 @@ let exampleMovie10 = Movie(id: UUID().uuidString,
                           creators: "",
                           cast: "",
                           moreLikeThisMovies: [],
-                          trailers: [])
+                          trailers: [],
+                          previewImageName: "whiteLinesPreview",
+                          previewVideoUrl: exampleVideoURL1)
 
 
 var moreLikeThisExamples: [Movie] {
@@ -184,6 +204,14 @@ var moreLikeThisExamples: [Movie] {
 
 var setupMoviesShuffled: [Movie] {
     return [ exampleMovie1, exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6 ].shuffled()
+}
+
+var previewMovies: [Movie] {
+    return [ exampleMovie2, exampleMovie4, exampleMovie6, exampleMovie8, exampleMovie10 ].shuffled()
+}
+
+var topPromoMovies: [Movie] {
+    return generateMovies(12)
 }
 
 let exampleEpisodeInfo1 = CurrentEpisodeInfo(episodeName: "Everything to play for",
