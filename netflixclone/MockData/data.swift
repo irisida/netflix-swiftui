@@ -11,7 +11,7 @@ import Foundation
 // video and images
 // ****************************************
 
-let exampleVideoURL1 = URL(string: "https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4")!
+let exampleVideoURL1 = URL(string: "https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4")!
 let exampleImageUrl1 = URL(string: "https://picsum.photos/299/122")!
 let exampleImageUrl2 = URL(string: "https://picsum.photos/299/130")!
 let exampleImageUrl3 = URL(string: "https://picsum.photos/299/125")!
