@@ -23,6 +23,9 @@ struct Movie: Identifiable {
     
     // personalisation
     var currentEpisode: CurrentEpisodeInfo?
+    
+    var accentColor: Color = .white
+    
     var defaultEpisodeInfo: CurrentEpisodeInfo
     var creators: String
     var cast: String
