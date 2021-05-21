@@ -11,12 +11,14 @@ struct PreviewView: View {
     
     @ObservedObject var viewModel: PreviewViewModel
     
+    var playVideo: Bool
+    
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             
             TrailerPlayerView(videoUrl: viewModel.movie.trailers.first?.videoURL,
-                              playVideo: .constant(true))
+                              playVideo: .constant(playVideo))
             
             VStack {
                 HStack {
@@ -102,6 +104,6 @@ struct PreviewView: View {
 
 struct PreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewView(viewModel: PreviewViewModel(movie: exampleMovie9))
+        PreviewView(viewModel: PreviewViewModel(movie: exampleMovie9), playVideo: true)
     }
 }
