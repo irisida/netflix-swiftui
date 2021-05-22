@@ -13,12 +13,22 @@ struct PagerView<Content: View>: View {
     
     @Binding var currentIndex: Int
     @Binding var translation: CGFloat
+    
+    @State private var verticalDragIsActive = false
+    
+    let externaDragGesture: _EndedGesture<_ChangedGesture<DragGesture>>
+    
     let content: Content
     
-    init(pageCount: Int, currentIndex: Binding<Int>, translation: Binding<CGFloat>, @ViewBuilder content: ()-> Content) {
+    init(pageCount: Int,
+         currentIndex: Binding<Int>,
+         translation: Binding<CGFloat>,
+         externaDragGesture: _EndedGesture<_ChangedGesture<DragGesture>>,
+         @ViewBuilder content: ()-> Content) {
         self.pageCount = pageCount
         self._currentIndex = currentIndex
         self._translation = translation
+        self.externaDragGesture = externaDragGesture
         self.content = content()
     }
     
@@ -32,37 +42,60 @@ struct PagerView<Content: View>: View {
             .offset(x: self.translation)
             .animation(.interactiveSpring())
             .gesture(
-                DragGesture()
-                    .onChanged({ value in
-                        translation = value.translation.width
-                    })
-                    .onEnded({ value in
-                        let offset = value.translation.width / geo.size.width
-                        let newIndex = (CGFloat(self.currentIndex) - offset).rounded()
-                        
-                        currentIndex = min(max(Int(newIndex), 0), self.pageCount - 1)
-                        translation = 0
-                    })
+                externaDragGesture
+                    .simultaneously(
+                        with:
+                            DragGesture(minimumDistance: 20)
+                            .onChanged({ value in
+                                if verticalDragIsActive {
+                                    return
+                                }
+                                
+                                if abs(value.translation.width) < abs(value.translation.height) {
+                                    if abs(value.translation.width) < 30 {
+                                        verticalDragIsActive = true
+                                        return
+                                    }
+                                }
+                                
+                                // horiontal drag only
+                                
+                                translation = value.translation.width
+                            })
+                            .onEnded({ value in
+                                if verticalDragIsActive {
+                                    verticalDragIsActive = false
+                                    return
+                                }
+                                
+                                // ending a horizontal drag
+                                let offset = value.translation.width / geo.size.width
+                                let newIndex = (CGFloat(self.currentIndex) - offset).rounded()
+                                
+                                currentIndex = min(max(Int(newIndex), 0), self.pageCount - 1)
+                                translation = 0
+                            })
+                    )
             )
         }
     }
 }
 
-struct PagerDummy: View {
-    @State private var currentIndex: Int = 0
-    @State private var translation: CGFloat = .zero
-    var body: some View {
-        PagerView(pageCount: 4, currentIndex: $currentIndex, translation: $translation) {
-            Color.orange
-            Color.blue
-            Color.pink
-            Color.purple
-        }
-    }
-}
-
-struct PagerView_Previews: PreviewProvider {
-    static var previews: some View {
-        PagerDummy()
-    }
-}
+//struct PagerDummy: View {
+//    @State private var currentIndex: Int = 0
+//    @State private var translation: CGFloat = .zero
+//    var body: some View {
+//        PagerView(pageCount: 4, currentIndex: $currentIndex, translation: $translation, externaDragGesture: externalDragGesture) {
+//            Color.orange
+//            Color.blue
+//            Color.pink
+//            Color.purple
+//        }
+//    }
+//}
+//
+//struct PagerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PagerDummy()
+//    }
+//}

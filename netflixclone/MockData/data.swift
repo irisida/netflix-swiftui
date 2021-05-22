@@ -162,7 +162,7 @@ let exampleMovie7 = Movie(id: UUID().uuidString,
 let exampleMovie8 = Movie(id: UUID().uuidString,
                           name: "Boston Breakout",
                           thumbnailURL: URL(string: "https://picsum.photos/219/305")!,
-                          categories: ["War", "Drama", "IMDB"],
+                          categories: ["War", "Fighting", "IMDB"],
                           year: 2020,
                           rating: "TV-MA",
                           numberOfSeasons: 3 ,
@@ -170,10 +170,10 @@ let exampleMovie8 = Movie(id: UUID().uuidString,
                           defaultEpisodeInfo: exampleEpisodeInfo1,
                           creators: "ITN",
                           cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
-                          moreLikeThisMovies: moreLikeThisExamples,
+                          moreLikeThisMovies: [],
                           episodes: allExampleEpisodes,
                           promotionalText: "The war on terror as no rules.",
-                          trailers: exampleTrailersGroup1,
+                          trailers: [],
                           previewImageName: "dirtyJohnPreview",
                           previewVideoUrl: exampleVideoURL1)
 
@@ -204,7 +204,7 @@ let exampleMovie10 = Movie(id: UUID().uuidString,
                            defaultEpisodeInfo: exampleEpisodeInfo1,
                            creators: "ITN",
                            cast: "Jan Leeming, Trevor Mcdonald, Leonard Parkin",
-                           moreLikeThisMovies: moreLikeThisExamples,
+                           moreLikeThisMovies: [],
                            episodes: allExampleEpisodes,
                            promotionalText: "Because being mental is still being.",
                            trailers: exampleTrailersGroup1,
@@ -214,6 +214,10 @@ let exampleMovie10 = Movie(id: UUID().uuidString,
 
 var moreLikeThisExamples: [Movie] {
     return [ exampleMovie7,exampleMovie8, exampleMovie9, exampleMovie10 ].shuffled()
+}
+
+var moreLikeThisExamples2: [Movie] {
+    return [ exampleMovie1,exampleMovie3, exampleMovie5, exampleMovie7 ].shuffled()
 }
 
 var setupMoviesShuffled: [Movie] {

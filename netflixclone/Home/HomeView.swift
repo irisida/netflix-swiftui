@@ -18,7 +18,12 @@ struct HomeView: View {
     @State private var homeGenre: HomeGenre = .AllGenres
     
     @State private var showGenreSelection = false
+    
     @State private var showTopRowSelection = false
+    
+    @Binding var showPreviewFullScreen: Bool
+    
+    @Binding var previewStartingIndex: Int
     
     var body: some View {
         ZStack  {
@@ -42,9 +47,16 @@ struct HomeView: View {
                         .padding(.top, -110)
                         .zIndex(-1)
                     
-                    MoviePreviewRow(movies: previewMovies)
+                    MoviePreviewRow(movies: previewMovies,
+                                    showPreviewFullScreen: $showPreviewFullScreen,
+                                    previewStartingIndex: $previewStartingIndex)
                     
-                    HomeStack(viewModel: viewModel, topRowSelection: topRowSelection, selectedGenre: homeGenre, movieDetailToShow: $movieDetailToShow)
+                    HomeStack(viewModel: viewModel,
+                              topRowSelection: topRowSelection,
+                              selectedGenre: homeGenre,
+                              movieDetailToShow: $movieDetailToShow,
+                              showPreviewFullScreen: $showPreviewFullScreen,
+                              previewStartingIndex: $previewStartingIndex)
                 }
             }
             
@@ -57,7 +69,7 @@ struct HomeView: View {
             if showTopRowSelection {
                 Group {
                     Color.black.opacity(0.9)
-                 
+                    
                     VStack(spacing: 40) {
                         
                         Spacer()
@@ -98,7 +110,7 @@ struct HomeView: View {
             if showGenreSelection {
                 Group {
                     Color.black.opacity(0.9)
-                 
+                    
                     VStack(spacing: 40) {
                         
                         Spacer()
@@ -145,7 +157,8 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(showPreviewFullScreen: .constant(false),
+                 previewStartingIndex: .constant(0))
     }
 }
 
@@ -204,7 +217,7 @@ struct TopRowButtons: View {
                 .padding(.trailing, 32)
             }
             .background(Color.black.opacity(0.05))
-        
+            
         case .tvShows, .movies, .myList:
             //
             HStack {
